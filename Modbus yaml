@@ -1,0 +1,114 @@
+
+  - name: WaveshareTCP
+    type: tcp
+    host: 192.168.x.xxx
+    port: 502
+    delay: 0
+    message_wait_milliseconds: 60
+    timeout: 5
+    sensors:
+    
+      - name: "ASHP_outlet_temp"
+        unique_id: "ASHP_OUTLET_TEMP"
+        scan_interval: 5
+        address: 3349
+        slave: 1
+        input_type: input
+        scale: 0.1
+        device_class: temperature
+        unit_of_measurement: '°C'
+        
+      - name: "ASHP_inlet_temp"
+        unique_id: "ASHP_INLET_TEMP"
+        scan_interval: 5
+        address: 3348
+        slave: 1
+        input_type: input
+        scale: 0.1
+        device_class: temperature
+        unit_of_measurement: '°C'
+        
+      - name: "outside_temp"
+        unique_id: "ASHP_OUTSIDE_TEMP"
+        scan_interval: 5
+        address: 3350
+        slave: 1
+        input_type: input
+        scale: 0.1
+        device_class: temperature
+        unit_of_measurement: '°C'
+        
+      - name: "ASHP condition"
+        unique_id: "ASHP_CONDITION"
+        scan_interval: 1
+        address: 768
+        slave: 1
+        input_type: holding
+        
+      - name: "ASHP mode"
+        unique_id: "ASHP_MODE"
+        scan_interval: 1
+        address: 770
+        slave: 1
+        input_type: holding
+        
+      - name: "ASHP status"
+        unique_id: "ASHP_STATUS"
+        scan_interval: 1
+        address: 771
+        slave: 1
+        input_type: holding
+        
+      - name: "ASHP temp setpoint"
+        unique_id: "ASHP_TEMP SETPOINT"
+        scan_interval: 1
+        address: 772
+        slave: 1
+        input_type: holding
+        scale: 0.1
+        device_class: temperature
+        unit_of_measurement: '°C'
+        
+      - name: "ASHP temp actual"
+        unique_id: "ASHP_TEMP_ACTUAL"
+        scan_interval: 1
+        address: 773
+        slave: 1
+        input_type: holding
+        scale: 0.1
+        device_class: temperature
+        unit_of_measurement: '°C'
+        
+    switches:
+      - name: "ASHP ON/OFF"
+        unique_id: "ASHP_ON/OFF"
+        scan_interval: 1
+        address: 0
+        slave: 1
+        write_type: coil
+        command_on: 0
+        command_off: 1
+        verify:
+         input_type: coil
+         address: 0
+         state_on: 0
+         state_off: 1
+        
+    climates:
+      - name: "ASHP temp settings"
+        unique_id: "ASHP_TEMP SETPOINT"
+        scan_interval: 0.5
+        address: 6402
+        slave: 1
+        input_type: holding
+        max_temp: 50
+        min_temp: 10
+        offset: 0
+        precision: 1
+        scale: 1
+        target_temp_register: 6402
+        temp_step: 0.5
+        temperature_unit: C
+        
+        
+     
