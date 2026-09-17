@@ -1,20 +1,8 @@
-add Modbus integration 
+hardware used is waveshare RS485 to Eth, Modbus via TCP https://www.waveshare.com/wiki/RS485_TO_ETH_(B)?srsltid=AU7gw4XysHiihtr1WZk2C_OYDQYb_-JqiZw1Ubyg4P-Gm0FrDODOazqI
+add Modbus integration via HA device intergrations
 in File Editor:-
-add a new modbus folder in home assistant folder 
-Add the Yaml file to the modbus folder 
-update HA Configuration.yaml file to inc Modbus and modbus.yaml file example below:- 
-
-# Loads default set of integrations. Do not remove.
-default_config:
-
-# Load frontend themes from the themes folder
-frontend:
-  themes: !include_dir_merge_named themes
-
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
-template: !include template.yaml
-modbus: !include modbus2.yaml
-media_player:
-
+add a new "modbus" folder in home assistant folder 
+Add the "modbus.Yaml" file to the modbus folder 
+update HA "Configuration.yaml" file to inc a line for the Modbus and modbus.yaml file:-example "modbus: !include modbus.yaml"
+update entity names etc to suit
+view Airosd modbus address info for additional monitoring and control
